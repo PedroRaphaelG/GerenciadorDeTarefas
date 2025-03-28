@@ -1,4 +1,4 @@
-abstract class Tarefa {
+abstract class Tarefa implements InterfaceTarefa {
     protected String descricao;
     protected boolean concluida;
 
@@ -11,11 +11,11 @@ abstract class Tarefa {
         this.concluida = true;
     }
 
-    public String getDescricao() {
+    public String BuscarDescricao() {
         return descricao;
     }
 
-    public boolean isConcluida() {
+    public boolean EstaConcluida() {
         return concluida;
     }
 

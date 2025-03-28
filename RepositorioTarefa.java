@@ -1,27 +1,28 @@
 import java.util.ArrayList;
+import java.util.List;
 
-class GerenciadorTarefas {
-    private ArrayList<Tarefa> tarefas = new ArrayList<>();
+class RepositorioTarefa {
+    private List<InterfaceTarefa> tarefas = new ArrayList<>();
 
-    public void adicionarTarefa(String descricao) {
-        tarefas.add(new TarefaSimples(descricao));
+    public void adicionarTarefa(InterfaceTarefa tarefa) {
+        tarefas.add(tarefa);
         System.out.println("Tarefa adicionada com sucesso!");
     }
 
     public void removerTarefa(int indice) {
-        try {
+        if (indice >= 0 && indice < tarefas.size()) {
             tarefas.remove(indice);
             System.out.println("Tarefa removida com sucesso!");
-        } catch (IndexOutOfBoundsException e) {
+        } else {
             System.out.println("Erro: Índice inválido.");
         }
     }
 
     public void marcarComoConcluida(int indice) {
-        try {
+        if (indice >= 0 && indice < tarefas.size()) {
             tarefas.get(indice).marcarComoConcluida();
             System.out.println("Tarefa marcada como concluída!");
-        } catch (IndexOutOfBoundsException e) {
+        } else {
             System.out.println("Erro: Índice inválido.");
         }
     }
